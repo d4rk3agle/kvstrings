@@ -1,11 +1,8 @@
 # kvstrings
 kvstrings is a tool same as "strings" command in Linux
 
-### Built With
 
-* [![C][C]][C]
-
-### Installation
+## Installation
 
 1. Clone the repo
    ```sh
