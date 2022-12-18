@@ -6,8 +6,8 @@
 #include "./types.h"
 
 
-#define READ_BUFFER_SIZE 4096
-#define NUM_BYTES_TO_READ 4095
+#define READ_BUFFER_SIZE 4097
+#define NUM_BYTES_TO_READ 4096
 #define LEN_LOW_BOUNDARY 3
 
 
@@ -41,7 +41,7 @@ int main(int argc , char **argv){
 		if (argc==3){
 			threshold = atoi(argv[2]);
 			if(threshold > NUM_BYTES_TO_READ)
-				exit_with_error_mess("Invalid threshold, give <4096\n");
+				exit_with_error_mess("Invalid threshold, give <=4096\n");
 		}
 	}
 
@@ -87,7 +87,7 @@ int main(int argc , char **argv){
 
 					// Creating colored offset string
 					u8 offsetBuffer[20];
-					snprintf(offsetBuffer,20,"0x%016lx:",ftell(fp) - NUM_BYTES_TO_READ + i - (&readBuffer[i]-startString));
+					snprintf(offsetBuffer,20,"0x%016lx:",ftell(fp) - numOfBytesRead + i - (&readBuffer[i]-startString));
 					display(offsetBuffer,DISPLAY_COLOR_ORANGE);
 					printf("  %s\n",startString);
 				}
